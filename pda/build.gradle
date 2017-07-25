@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.android.moncity.pda"
-        minSdkVersion 19
+        minSdkVersion 17
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -29,4 +29,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
+    compile project (':MonCityAndroidFramework')
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
 }

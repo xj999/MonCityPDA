@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mine_gray">#6c92a2</color>
+    <color name="mine_black">#2d2f3b</color>
+    <color name="de_transparent">#00000000</color>
+    <color name="nav_line_gray_color">#d6d6eb</color>
+</resources>
