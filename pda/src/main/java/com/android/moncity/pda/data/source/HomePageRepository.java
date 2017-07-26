@@ -77,20 +77,17 @@ public class HomePageRepository implements HomeDataSource {
         OkGoHttpUtil.post(Urls.URL_FORM_UPLOAD, params, hashCode(), new JsonCallback<String>() {
             @Override
             public void onSuccess(Response response) {
-                MonCityLog.e("onSuccess" + response.message());
                 callBack.onUpLoadSuccess(response.body().toString());
             }
 
             @Override
             public void uploadProgress(Progress progress) {
                 super.uploadProgress(progress);
-                MonCityLog.e(progress.fraction + "             uploadProgress");
             }
 
             @Override
             public void onError(Response response) {
                 super.onError(response);
-                MonCityLog.e("11111" + response.message());
                 callBack.onUpLoadError(response.message());
             }
         });
