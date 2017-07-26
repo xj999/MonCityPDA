@@ -1,5 +1,6 @@
 package com.android.moncity.pda.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.android.moncity.pda.data.Task;
 import com.android.moncity.pda.data.source.TasksRepository;
 import com.android.moncity.pda.data.source.localdata.TasksLocalDataSource;
 import com.android.moncity.pda.data.source.remotedata.TasksRemoteDataSource;
+import com.android.moncity.pda.dbview.DbActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,7 +124,7 @@ public class HomePage extends BaseActivity implements HomeContract.View {
         mPresenter = checkNotNull(presenter);
     }
 
-    @OnClick({R.id.show_pic, R.id.update, R.id.download, R.id.login, R.id.activity_main})
+    @OnClick({R.id.show_pic, R.id.update, R.id.download, R.id.login, R.id.activity_main, R.id.db_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.show_pic:
@@ -146,7 +148,8 @@ public class HomePage extends BaseActivity implements HomeContract.View {
                 showLoading();
                 mPresenter.login("111", "222");
                 break;
-            case R.id.activity_main:
+            case R.id.db_btn:
+                startActivity(new Intent(HomePage.this, DbActivity.class));
                 break;
         }
     }
