@@ -20,7 +20,7 @@ package com.android.moncity.pda.data.source.localdata;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.android.moncity.pda.data.source.TasksDataSource;
+import com.android.moncity.pda.data.source.HomeDataSource;
 
 import java.io.File;
 
@@ -30,18 +30,18 @@ import static android.support.test.internal.util.Checks.checkNotNull;
 /**
  * Concrete implementation of a data source as a db.
  */
-public class TasksLocalDataSource implements TasksDataSource {
-    private static TasksLocalDataSource INSTANCE;
+public class HomePageLocalDataSource implements HomeDataSource {
+    private static HomePageLocalDataSource INSTANCE;
 
 
-    private TasksLocalDataSource(@NonNull Context context) {
+    private HomePageLocalDataSource(@NonNull Context context) {
         checkNotNull(context);
     }
 
 
-    public static TasksLocalDataSource getInstance(@NonNull Context context) {
+    public static HomePageLocalDataSource getInstance(@NonNull Context context) {
         if (INSTANCE == null) {
-            INSTANCE = new TasksLocalDataSource(context);
+            INSTANCE = new HomePageLocalDataSource(context);
         }
         return INSTANCE;
     }

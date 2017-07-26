@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @date create 2017/7/24
  * @description
  */
-public class Task implements Serializable {
+public class HomeDataBean implements Serializable {
     public String method;
     public String ip;
     public String url;

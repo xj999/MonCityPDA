@@ -2,6 +2,7 @@ package com.android.moncity.pda;
 
 import android.app.Application;
 
+import com.android.moncity.moncityandroidframework.utils.MonCityLog;
 import com.lzy.okgo.OkGo;
 
 import org.litepal.LitePal;
@@ -17,5 +18,6 @@ public class App extends Application {
         super.onCreate();
         OkGo.getInstance().init(this);
         LitePal.initialize(this);
+        MonCityLog.init();
     }
 }

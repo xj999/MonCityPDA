@@ -2,7 +2,7 @@ package com.android.moncity.pda.home;
 
 import com.android.moncity.moncityandroidframework.base.BasePresenter;
 import com.android.moncity.moncityandroidframework.base.BaseView;
-import com.android.moncity.pda.data.Task;
+import com.android.moncity.pda.data.HomeDataBean;
 
 /**
  * @author Luxj
@@ -21,7 +21,7 @@ public class HomeContract {
 
         void downLoadError();
 
-        void loginSuccess(Task task);
+        void loginSuccess(HomeDataBean task);
 
         void loginError();
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,54 +8,46 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.android.moncity.pda.home.HomePage">
+    tools:context="com.android.moncity.pda.scan.ScanActivity">
 
-    <Button
-        android:id="@+id/show_pic"
+    <TextView
+        android:id="@+id/show"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="获取图片" />
-
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="300dp"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/update"
+        android:id="@+id/open"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="上传文件" />
+        android:text="打开模块" />
 
     <Button
-        android:id="@+id/download"
+        android:id="@+id/close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="下载文件" />
-
-    <ProgressBar
-        android:id="@+id/ppp"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:max="1000"
-        android:visibility="gone" />
+        android:text="关闭模块" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/single_scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="普通请求" />
+        android:text="单次扫描" />
 
     <Button
-        android:id="@+id/db_btn"
+        android:id="@+id/close_single_scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="数据库操作" />
+        android:text="关闭单次扫描" />
 
     <Button
-        android:id="@+id/scan"
+        android:id="@+id/continuous_scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="扫码枪" />
+        android:text="连续扫描" />
+
+    <Button
+        android:id="@+id/close_continuous_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关闭连续扫描" />
 </LinearLayout>

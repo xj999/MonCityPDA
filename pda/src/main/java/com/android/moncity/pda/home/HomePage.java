@@ -10,11 +10,12 @@ import com.android.moncity.moncityandroidframework.base.BaseActivity;
 import com.android.moncity.moncityandroidframework.imageloader.MonCityImageLoader;
 import com.android.moncity.moncityandroidframework.utils.MonCityLog;
 import com.android.moncity.pda.R;
-import com.android.moncity.pda.data.Task;
-import com.android.moncity.pda.data.source.TasksRepository;
-import com.android.moncity.pda.data.source.localdata.TasksLocalDataSource;
-import com.android.moncity.pda.data.source.remotedata.TasksRemoteDataSource;
+import com.android.moncity.pda.data.HomeDataBean;
+import com.android.moncity.pda.data.source.HomePageRepository;
+import com.android.moncity.pda.data.source.localdata.HomePageLocalDataSource;
+import com.android.moncity.pda.data.source.remotedata.HomePageRemoteDataSource;
 import com.android.moncity.pda.dbview.DbActivity;
+import com.android.moncity.pda.scan.ScanActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +48,8 @@ public class HomePage extends BaseActivity implements HomeContract.View {
     @Override
     protected void initData(Bundle savedInstanceState) {
         mPresenter = new HomePresenter(
-                TasksRepository.getInstance(TasksRemoteDataSource.getInstance(),
-                        TasksLocalDataSource.getInstance(getApplicationContext())), this);
+                HomePageRepository.getInstance(HomePageRemoteDataSource.getInstance(),
+                        HomePageLocalDataSource.getInstance(getApplicationContext())), this);
         imgurl.add("http://wx1.sinaimg.cn/mw690/624c2f04gy1fhvuzwqh0zj20oq0dx3zx.jpg");
         imgurl.add("http://wx4.sinaimg.cn/mw690/624c2f04gy1fhvuocjs3ej20fd0aa3zd.jpg");
         imgurl.add("http://wx4.sinaimg.cn/mw690/632dab64ly1fhvug783uoj20dc08wn08.jpg");
@@ -101,7 +102,7 @@ public class HomePage extends BaseActivity implements HomeContract.View {
     }
 
     @Override
-    public void loginSuccess(Task task) {
+    public void loginSuccess(HomeDataBean task) {
         dismissLoading();
         showToast(task.author.des);
 
@@ -124,9 +125,12 @@ public class HomePage extends BaseActivity implements HomeContract.View {
         mPresenter = checkNotNull(presenter);
     }
 
-    @OnClick({R.id.show_pic, R.id.update, R.id.download, R.id.login, R.id.activity_main, R.id.db_btn})
+    @OnClick({R.id.show_pic, R.id.update, R.id.download, R.id.login, R.id.activity_main, R.id.db_btn, R.id.scan})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.scan:
+                startActivity(new Intent(HomePage.this, ScanActivity.class));
+                break;
             case R.id.show_pic:
 
                 MonCityImageLoader.getInstance().loadImage(imgurl.get(i), img);

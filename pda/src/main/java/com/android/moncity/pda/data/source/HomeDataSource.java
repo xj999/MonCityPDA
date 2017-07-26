@@ -2,7 +2,7 @@ package com.android.moncity.pda.data.source;
 
 import android.support.annotation.NonNull;
 
-import com.android.moncity.pda.data.Task;
+import com.android.moncity.pda.data.HomeDataBean;
 
 import java.io.File;
 
@@ -11,10 +11,10 @@ import java.io.File;
  * @date create 2017/7/24
  * @description
  */
-public interface TasksDataSource {
+public interface HomeDataSource {
     interface LoginCallback {
 
-        void onLoginSuccess(Task task);
+        void onLoginSuccess(HomeDataBean task);
 
         void onLoginError(String msg);
     }

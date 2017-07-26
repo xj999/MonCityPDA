@@ -6,7 +6,7 @@ import com.android.moncity.moncityandroidframework.http.MonCityResponse;
 import com.android.moncity.moncityandroidframework.http.OkGoHttpUtil;
 import com.android.moncity.moncityandroidframework.http.callback.JsonCallback;
 import com.android.moncity.moncityandroidframework.utils.MonCityLog;
-import com.android.moncity.pda.data.Task;
+import com.android.moncity.pda.data.HomeDataBean;
 import com.android.moncity.pda.utils.Urls;
 import com.lzy.okgo.callback.FileCallback;
 import com.lzy.okgo.model.HttpParams;
@@ -22,23 +22,23 @@ import static android.support.test.internal.util.Checks.checkNotNull;
  * @date create 2017/7/24
  * @description
  */
-public class TasksRepository implements TasksDataSource {
-    private static TasksRepository INSTANCE = null;
+public class HomePageRepository implements HomeDataSource {
+    private static HomePageRepository INSTANCE = null;
 
-    private final TasksDataSource mTasksRemoteDataSource;
+    private final HomeDataSource mTasksRemoteDataSource;
 
-    private final TasksDataSource mTasksLocalDataSource;
+    private final HomeDataSource mTasksLocalDataSource;
 
-    private TasksRepository(@NonNull TasksDataSource tasksRemoteDataSource,
-                            @NonNull TasksDataSource tasksLocalDataSource) {
+    private HomePageRepository(@NonNull HomeDataSource tasksRemoteDataSource,
+                               @NonNull HomeDataSource tasksLocalDataSource) {
         mTasksRemoteDataSource = checkNotNull(tasksRemoteDataSource);
         mTasksLocalDataSource = checkNotNull(tasksLocalDataSource);
     }
 
-    public static TasksRepository getInstance(TasksDataSource tasksRemoteDataSource,
-                                              TasksDataSource tasksLocalDataSource) {
+    public static HomePageRepository getInstance(HomeDataSource tasksRemoteDataSource,
+                                                 HomeDataSource tasksLocalDataSource) {
         if (INSTANCE == null) {
-            INSTANCE = new TasksRepository(tasksRemoteDataSource, tasksLocalDataSource);
+            INSTANCE = new HomePageRepository(tasksRemoteDataSource, tasksLocalDataSource);
         }
         return INSTANCE;
     }
@@ -100,19 +100,18 @@ public class TasksRepository implements TasksDataSource {
     public void login(@NonNull String name, @NonNull String pwd, @NonNull final LoginCallback callback) {
 
 
-
         HttpParams params = new HttpParams();
         params.put("name", name);
         params.put("pwd", pwd);
-        OkGoHttpUtil.post(Urls.URL_JSONOBJECT, params, hashCode(), new JsonCallback<MonCityResponse<Task>>() {
+        OkGoHttpUtil.post(Urls.URL_JSONOBJECT, params, hashCode(), new JsonCallback<MonCityResponse<HomeDataBean>>() {
             @Override
-            public void onSuccess(Response<MonCityResponse<Task>> response) {
+            public void onSuccess(Response<MonCityResponse<HomeDataBean>> response) {
                 callback.onLoginSuccess(response.body().data);
             }
 
 
             @Override
-            public void onError(Response<MonCityResponse<Task>> response) {
+            public void onError(Response<MonCityResponse<HomeDataBean>> response) {
                 callback.onLoginError(response.message());
             }
         });

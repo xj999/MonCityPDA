@@ -14,6 +14,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+    sourceSets {
+        main {
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['libs']
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -29,6 +35,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
-    compile project (':MonCityAndroidFramework')
+    compile project(':MonCityAndroidFramework')
     compile 'com.android.support.test.espresso:espresso-core:2.2.2'
 }

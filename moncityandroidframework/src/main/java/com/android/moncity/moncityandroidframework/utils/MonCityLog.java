@@ -10,57 +10,48 @@ import com.orhanobut.logger.Logger;
 public class MonCityLog {
 
 
-    static void init() {
+    public static void init() {
         Logger.clearLogAdapters();
         Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     public static void d(String message, Object... args) {
-        init();
         Logger.t(getClassName()).d(message, args);
     }
 
     public static void e(String message, Object... args) {
-        init();
         Logger.t(getClassName()).e(message, args);
     }
 
 
     public static void e(Throwable throwable, String message, Object... args) {
-        init();
         Logger.t(getClassName()).e(throwable, message, args);
     }
 
     public static void i(String message, Object... args) {
-        init();
         Logger.t(getClassName()).i(message, args);
     }
 
 
     public static void v(String message, Object... args) {
-        init();
         Logger.t(getClassName()).v(message, args);
     }
 
 
     public static void w(String message, Object... args) {
-        init();
         Logger.t(getClassName()).w(message, args);
     }
 
 
     public static void wtf(String message, Object... args) {
-        init();
         Logger.t(getClassName()).wtf(message, args);
     }
 
     public static void json(String json) {
-        init();
         Logger.t(getClassName()).json(json);
     }
 
     public static void xml(String xml) {
-        init();
         Logger.t(getClassName()).xml(xml);
     }
 

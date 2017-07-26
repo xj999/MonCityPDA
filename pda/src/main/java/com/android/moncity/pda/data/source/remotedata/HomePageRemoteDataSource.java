@@ -18,24 +18,24 @@ package com.android.moncity.pda.data.source.remotedata;
 
 import android.support.annotation.NonNull;
 
-import com.android.moncity.pda.data.source.TasksDataSource;
+import com.android.moncity.pda.data.source.HomeDataSource;
 
 import java.io.File;
 
-public class TasksRemoteDataSource implements TasksDataSource {
+public class HomePageRemoteDataSource implements HomeDataSource {
 
-    private static TasksRemoteDataSource INSTANCE;
+    private static HomePageRemoteDataSource INSTANCE;
 
 
-    public static TasksRemoteDataSource getInstance() {
+    public static HomePageRemoteDataSource getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new TasksRemoteDataSource();
+            INSTANCE = new HomePageRemoteDataSource();
         }
         return INSTANCE;
     }
 
     // Prevent direct instantiation.
-    private TasksRemoteDataSource() {
+    private HomePageRemoteDataSource() {
     }
 
 
