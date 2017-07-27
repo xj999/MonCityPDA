@@ -7,8 +7,8 @@ import com.lzy.okgo.model.HttpParams;
 import org.json.JSONObject;
 
 /**
- * 封装公共参数
- * Created by JianHuihuang on 2017/2/24.
+ * OKGO2次封装
+ * LuXJ
  */
 public class OkGoHttpUtil {
 

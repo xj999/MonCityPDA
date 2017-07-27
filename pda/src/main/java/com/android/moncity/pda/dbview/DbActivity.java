@@ -51,7 +51,7 @@ public class DbActivity extends BaseActivity {
         nameStr = name.getText().toString();
         codeStr = code.getText().toString();
         switch (view.getId()) {
-            case R.id.save_data:
+            case R.id.save_data:   //保存数据
                 if (!nameStr.isEmpty() && !codeStr.isEmpty()) {
                     boolean bb = new OrderBean(nameStr, codeStr).saveOrUpdate("pad_name=?", nameStr);
                     if (bb) {
@@ -61,25 +61,25 @@ public class DbActivity extends BaseActivity {
                     showToast("请输入完整数据");
                 }
                 break;
-            case R.id.query_data:
+            case R.id.query_data://查询指定数据
                 show.setText("");
                 List<OrderBean> list = DataSupport.where("pad_name=?", nameStr).find(OrderBean.class);
                 for (OrderBean b : list) {
                     show.setText(show.getText() + b.toString());
                 }
                 break;
-            case R.id.delete_data:
-                if (DataSupport.deleteAll(OrderBean.class, "pad_name=?", nameStr) > 0)
-                    showToast("删除数据成功");
-                break;
-            case R.id.query_all_data:
+            case R.id.query_all_data://查询全部数据
                 show.setText("");
                 List<OrderBean> listb = DataSupport.findAll(OrderBean.class);
                 for (OrderBean b : listb) {
                     show.setText(show.getText() + b.toString());
                 }
                 break;
-            case R.id.delete_all_data:
+            case R.id.delete_data://删除指定数据
+                if (DataSupport.deleteAll(OrderBean.class, "pad_name=?", nameStr) > 0)
+                    showToast("删除数据成功");
+                break;
+            case R.id.delete_all_data://删除全部数据
                 if (DataSupport.deleteAll(OrderBean.class) > 0)
                     showToast("删除数据成功");
                 break;

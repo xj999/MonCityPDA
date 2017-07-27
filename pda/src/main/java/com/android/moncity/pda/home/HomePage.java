@@ -133,7 +133,14 @@ public class HomePage extends BaseActivity implements HomeContract.View {
                 break;
             case R.id.show_pic:
 
-                MonCityImageLoader.getInstance().loadImage(imgurl.get(i), img);
+                MonCityImageLoader.getInstance().loadImage(imgurl.get(i), img);  //加载普通图片
+                MonCityImageLoader.getInstance().loadImage(imgurl.get(i), R.mipmap.ic_launcher, img);//加载带占位符图片
+                MonCityImageLoader.getInstance().loadCircleImage(imgurl.get(i), img);//加载圆形图片
+                MonCityImageLoader.getInstance().loadBorderCircleImage(imgurl.get(i), img, R.color.nav_line_gray_color);//加载圆形带边框图片自定义边框颜色
+                MonCityImageLoader.getInstance().loadBorderCircleImage(imgurl.get(i), R.mipmap.ic_launcher, R.color.nav_line_gray_color, img);//加载圆形带边框图片带占位符自定义边框颜色
+                MonCityImageLoader.getInstance().loadRoundImage(imgurl.get(i), img);//加载圆角图片
+                MonCityImageLoader.getInstance().loadRoundImage(imgurl.get(i), img,5);//加载圆角图片自定义圆角角度
+
                 if (i == imgurl.size() - 1) {
                     i = 0;
                 } else {

@@ -6,6 +6,7 @@ import com.android.moncity.moncityandroidframework.http.MonCityResponse;
 import com.android.moncity.moncityandroidframework.http.OkGoHttpUtil;
 import com.android.moncity.moncityandroidframework.http.callback.JsonCallback;
 import com.android.moncity.moncityandroidframework.utils.MonCityLog;
+import com.android.moncity.moncityandroidframework.utils.MonCityToast;
 import com.android.moncity.pda.data.HomeDataBean;
 import com.android.moncity.pda.utils.Urls;
 import com.lzy.okgo.callback.FileCallback;
@@ -51,6 +52,7 @@ public class HomePageRepository implements HomeDataSource {
             @Override
             public void onSuccess(Response<File> response) {
                 MonCityLog.e("onSuccess" + response.message());
+
                 callBack.onDownLoadSuccess(response.body().getAbsolutePath());
             }
 
@@ -97,18 +99,20 @@ public class HomePageRepository implements HomeDataSource {
     public void login(@NonNull String name, @NonNull String pwd, @NonNull final LoginCallback callback) {
 
 
-        HttpParams params = new HttpParams();
+        HttpParams params = new HttpParams();//参数
         params.put("name", name);
         params.put("pwd", pwd);
         OkGoHttpUtil.post(Urls.URL_JSONOBJECT, params, hashCode(), new JsonCallback<MonCityResponse<HomeDataBean>>() {
             @Override
             public void onSuccess(Response<MonCityResponse<HomeDataBean>> response) {
+                //绝大部分情况请使用MonCityResponse<XXXX>来接收请求返回值,XXXX为具体返回的data,MonCityResponse内包含msg与status
                 callback.onLoginSuccess(response.body().data);
             }
 
 
             @Override
             public void onError(Response<MonCityResponse<HomeDataBean>> response) {
+                //失败回调
                 callback.onLoginError(response.message());
             }
         });
